@@ -4,8 +4,9 @@ import {
   Meta,
   Outlet,
   Scripts,
-  ScrollRestoration,
+  ScrollRestoration
 } from "react-router";
+import { useState, useEffect } from "react";
 
 import type { Route } from "./+types/root";
 import "./app.css";
@@ -15,15 +16,31 @@ export const links: Route.LinksFunction = () => [
   {
     rel: "preconnect",
     href: "https://fonts.gstatic.com",
-    crossOrigin: "anonymous",
+    crossOrigin: "anonymous"
   },
   {
     rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
-  },
+    href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+  }
 ];
 
+export function HydrateFallback() {
+  // TODO: Provide a better loading state
+  return <p>Loading...</p>;
+}
+
 export function Layout({ children }: { children: React.ReactNode }) {
+  const [theme, setTheme] = useState<"light" | "dark">("dark");
+
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === "dark" ? "light" : "dark"));
+  };
+
+  // For SSR compatibility
+  useEffect(() => {
+    document.body.setAttribute("data-theme", theme);
+  }, [theme]);
+
   return (
     <html lang="en">
       <head>
@@ -32,7 +49,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body>
+      <body data-theme={theme}>
+        <button
+          onClick={toggleTheme}
+          className="fixed top-4 right-4 p-2 bg-surface-primary text-text-primary rounded-md z-50"
+        >
+          Toggle {theme === "dark" ? "Light" : "Dark"} Mode
+        </button>
         {children}
         <ScrollRestoration />
         <Scripts />

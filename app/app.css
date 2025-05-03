@@ -1,5 +1,7 @@
-@config "../tailwind.config.ts";
 @import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
 
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
@@ -8,182 +10,121 @@
 
 html,
 body {
-  @apply bg-bg-card text-text;
+  /* @apply bg-background text-foreground; */
+}
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.147 0.004 49.25);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.147 0.004 49.25);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.147 0.004 49.25);
+  --primary: oklch(0.216 0.006 56.043);
+  --primary-foreground: oklch(0.985 0.001 106.423);
+  --secondary: oklch(0.97 0.001 106.424);
+  --secondary-foreground: oklch(0.216 0.006 56.043);
+  --muted: oklch(0.97 0.001 106.424);
+  --muted-foreground: oklch(0.553 0.013 58.071);
+  --accent: oklch(0.97 0.001 106.424);
+  --accent-foreground: oklch(0.216 0.006 56.043);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.923 0.003 48.717);
+  --input: oklch(0.923 0.003 48.717);
+  --ring: oklch(0.709 0.01 56.259);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0.001 106.423);
+  --sidebar-foreground: oklch(0.147 0.004 49.25);
+  --sidebar-primary: oklch(0.216 0.006 56.043);
+  --sidebar-primary-foreground: oklch(0.985 0.001 106.423);
+  --sidebar-accent: oklch(0.97 0.001 106.424);
+  --sidebar-accent-foreground: oklch(0.216 0.006 56.043);
+  --sidebar-border: oklch(0.923 0.003 48.717);
+  --sidebar-ring: oklch(0.709 0.01 56.259);
+}
+
+.dark {
+  --background: oklch(0.147 0.004 49.25);
+  --foreground: oklch(0.985 0.001 106.423);
+  --card: oklch(0.216 0.006 56.043);
+  --card-foreground: oklch(0.985 0.001 106.423);
+  --popover: oklch(0.216 0.006 56.043);
+  --popover-foreground: oklch(0.985 0.001 106.423);
+  --primary: oklch(0.923 0.003 48.717);
+  --primary-foreground: oklch(0.216 0.006 56.043);
+  --secondary: oklch(0.268 0.007 34.298);
+  --secondary-foreground: oklch(0.985 0.001 106.423);
+  --muted: oklch(0.268 0.007 34.298);
+  --muted-foreground: oklch(0.709 0.01 56.259);
+  --accent: oklch(0.268 0.007 34.298);
+  --accent-foreground: oklch(0.985 0.001 106.423);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.553 0.013 58.071);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.216 0.006 56.043);
+  --sidebar-foreground: oklch(0.985 0.001 106.423);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0.001 106.423);
+  --sidebar-accent: oklch(0.268 0.007 34.298);
+  --sidebar-accent-foreground: oklch(0.985 0.001 106.423);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.553 0.013 58.071);
 }
 
 @layer base {
-  [data-theme="dark"] {
-    /* Base Background Colors */
-    --color-bg-base: 23, 23, 28; /*rgb(23, 23, 28)*/
-    --color-bg-elevated: 28, 29, 36; /*rgb(28, 29, 36)*/
-    --color-bg-card: 39, 40, 50; /*rgb(39, 40, 50)*/
-    --color-bg-card-highlight: 44, 45, 56; /*rgb(44, 45, 56)*/
-
-    /* Surface & Container Colors */
-    --color-surface-primary: 33, 34, 42; /*rgb(33, 34, 42)*/
-    --color-surface-secondary: 39, 40, 50; /*rgb(39, 40, 50)*/
-
-    /* Border Colors */
-    --color-border-subtle: 55, 56, 70; /*rgb(55, 56, 70)*/
-    --color-border-default: 66, 67, 84; /*rgb(66, 67, 84)*/
-    --color-border-accent: 103, 52, 20; /*rgb(103, 52, 20)*/ /* Dark border for accent containers */
-
-    /* Text Colors */
-    --color-text-primary: 235, 236, 245; /* Main headings/labels rgb(235, 236, 245)*/
-    --color-text-secondary: 185, 186, 201; /* Regular text rgb(185, 186, 201) */
-    --color-text-tertiary: 140, 142, 160; /* Sub text, period text rgb(140, 142, 160) */
-    --color-text-muted: 100, 102, 120; /* Additional muted info rgb( 100, 102, 120)*/
-
-    /* Accent Colors */
-    --color-accent-primary: 252, 146, 77; /* Main accent rgb(252, 146, 77) */
-    --color-accent-secondary: 232, 126, 57; /* Hover state rbg(232, 126, 57) */
-    --color-accent-muted: 183, 95, 40; /* Inactive state rgb(183, 95, 40) */
-
-    /* Button Colors - Depth Style */
-    --color-button-depth-default: 232, 126, 57; /*rgb(232, 126, 57)*/
-    --color-button-depth-hover: 222, 116, 47; /*rgb(222, 116, 47)*/
-    --color-button-depth-active: 202, 96, 27; /*rgb(202, 96, 27)*/
-    --color-button-depth-disabled: 133, 56, 12; /*rgb(133, 56, 12)*/
-
-    /* Button Colors - Soft Style */
-    --color-button-soft-default: 252, 166, 117; /*rgb(252, 166, 117)*/
-    --color-button-soft-hover: 252, 146, 97; /*rgb(252, 146, 97)*/
-    --color-button-soft-active: 252, 126, 77; /*rgb(252, 126, 77)*/
-    --color-button-soft-disabled: 123, 64, 36; /*rgb(123, 64, 36)*/
-
-    /* Button Colors - Flat Style */
-    --color-button-flat-default: 252, 126, 77; /*rgb(252, 126, 77)*/
-    --color-button-flat-hover: 252, 126, 77; /*rgb(252, 126, 77)*/
-    --color-button-flat-active: 252, 126, 77; /*rgb(252, 126, 77)*/
-    --color-button-flat-disabled: 123, 64, 36; /*rgb(123, 64, 36)*/
-
-    /* Button - Share Feedback */
-    --color-button-feedback: 77, 36, 20; /*rgb(77, 36, 20)*/
-    --color-button-feedback-text: 252, 126, 77; /*rgb(252, 126, 77)*/
-
-    /* Category Colors */
-    --color-category-groceries: 252, 146, 77; /*rgb(252, 146, 77)*/
-    --color-category-household: 252, 146, 77; /*rgb(252, 146, 77)*/
-    --color-category-travel: 252, 146, 77; /*rgb(252, 146, 77)*/
-    --color-category-other: 252, 146, 77; /*rgb(252, 146, 77)*/
-
-    /* Status Colors */
-    --color-status-success: 92, 232, 142; /*rgb(92, 232, 142)*/
-    --color-status-warning: 252, 196, 77; /*rgb(252, 196, 77)*/
-    --color-status-error: 252, 86, 77; /*rgb(252, 86, 77)*/
-    --color-status-info: 77, 169, 252; /*rgb(77, 169, 252)*/
-
-    /* Badge/Pill Background Colors */
-    --color-badge-work: 252, 126, 77; /*rgb(252, 126, 77)*/
-    --color-badge-travel: 252, 146, 77; /*rgb(252, 146, 77)*/
-    --color-badge-design: 252, 166, 77; /*rgb(252, 166, 77)*/
-    --color-badge-default: 66, 67, 84; /*rgb(66, 67, 84)*/
-    --color-badge-remote: 66, 67, 84; /*rgb(66, 67, 84)*/
-
-    /* Gradient Components */
-    --gradient-accent: linear-gradient(
-      135deg,
-      rgba(252, 146, 77, 1) 0%,
-      rgba(252, 106, 77, 1) 100%
-    );
-
-    /* System */
-    color-scheme: dark;
+  * {
+    @apply border-border outline-ring/50;
   }
-
-  [data-theme="light"] {
-    /* Base Background Colors */
-    --color-bg-base: 255, 255, 255;
-    --color-bg-elevated: 250, 250, 252;
-    --color-bg-card: 245, 245, 247;
-    --color-bg-card-highlight: 240, 240, 242;
-
-    /* Surface & Container Colors */
-    --color-surface-primary: 248, 248, 250;
-    --color-surface-secondary: 240, 240, 242;
-
-    /* Border Colors */
-    --color-border-subtle: 230, 230, 235;
-    --color-border-default: 220, 220, 225;
-    --color-border-accent: 255, 220, 200; /* Light border for accent containers */
-
-    /* Text Colors */
-    --color-text-primary: 30, 30, 34; /* Main headings/labels */
-    --color-text-secondary: 60, 60, 68; /* Regular text */
-    --color-text-tertiary: 110, 110, 120; /* Sub text, period text */
-    --color-text-muted: 150, 150, 165; /* Additional muted info */
-
-    /* Accent Colors */
-    --color-accent-primary: 252, 126, 77; /* Main accent */
-    --color-accent-secondary: 232, 116, 67; /* Hover state */
-    --color-accent-muted: 212, 106, 57; /* Inactive state */
-
-    /* Button Colors - Depth Style */
-    --color-button-depth-default: 232, 116, 57;
-    --color-button-depth-hover: 222, 106, 47;
-    --color-button-depth-active: 202, 86, 27;
-    --color-button-depth-disabled: 253, 230, 215;
-
-    /* Button Colors - Soft Style */
-    --color-button-soft-default: 252, 166, 117;
-    --color-button-soft-hover: 252, 146, 97;
-    --color-button-soft-active: 252, 126, 77;
-    --color-button-soft-disabled: 253, 230, 215;
-
-    /* Button Colors - Flat Style */
-    --color-button-flat-default: 252, 126, 77;
-    --color-button-flat-hover: 252, 146, 97;
-    --color-button-flat-active: 252, 166, 117;
-    --color-button-flat-disabled: 253, 230, 215;
-
-    /* Button - Shop Now */
-    --color-button-shop: 30, 30, 34;
-    --color-button-shop-text: 255, 255, 255;
-
-    /* Radio Button */
-    --color-radio-selected: 252, 126, 77;
-    --color-radio-unselected: 220, 220, 225;
-
-    /* Category Colors */
-    --color-category-groceries: 252, 126, 77;
-    --color-category-household: 252, 126, 77;
-    --color-category-travel: 252, 126, 77;
-    --color-category-other: 252, 126, 77;
-
-    /* Status Colors */
-    --color-status-success: 52, 192, 112;
-    --color-status-warning: 252, 186, 47;
-    --color-status-error: 252, 76, 67;
-    --color-status-info: 47, 139, 252;
-
-    /* Badge/Pill Background Colors */
-    --color-badge-work: 252, 126, 77;
-    --color-badge-travel: 252, 146, 77;
-    --color-badge-design: 252, 166, 77;
-    --color-badge-default: 240, 240, 242;
-    --color-badge-remote: 240, 240, 242;
-
-    /* Calendar/Events Colors */
-    --color-event-primary: 252, 146, 97;
-    --color-event-secondary: 252, 166, 117;
-    --color-event-tertiary: 252, 186, 137;
-
-    /* Product Card Colors */
-    --color-product-card-primary: 252, 166, 117;
-    --color-product-card-secondary: 255, 220, 200;
-
-    /* Chart Colors */
-    --color-chart-primary: 252, 126, 77;
-    --color-chart-track: 252, 186, 137;
-
-    /* Gradient Components */
-    --gradient-accent: linear-gradient(
-      135deg,
-      rgba(252, 146, 77, 1) 0%,
-      rgba(252, 106, 77, 1) 100%
-    );
-
-    /* System */
-    color-scheme: light;
+  body {
+    @apply bg-background text-foreground;
   }
 }

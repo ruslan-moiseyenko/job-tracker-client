@@ -6,12 +6,10 @@ import {
   Scripts,
   ScrollRestoration
 } from "react-router";
-import { useState, useEffect } from "react";
 
 import type { Route } from "./+types/root";
 import "./app.css";
 import { ThemeProvider } from "~/components/theme-provider";
-import { ModeToggle } from "~/components/mode-toggle";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -52,7 +50,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
 export default function App() {
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <ModeToggle />
       <Outlet />
     </ThemeProvider>
   );

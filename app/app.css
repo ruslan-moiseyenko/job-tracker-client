@@ -9,7 +9,6 @@
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
-
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -49,72 +48,72 @@
 }
 
 :root {
-  --radius: 0.625rem;
+  --radius: 0.75rem;
   --background: oklch(1 0 0);
-  --foreground: oklch(0.147 0.004 49.25);
+  --foreground: oklch(0.141 0.005 285.823);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.147 0.004 49.25);
+  --card-foreground: oklch(0.141 0.005 285.823);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.147 0.004 49.25);
-  --primary: oklch(0.216 0.006 56.043);
-  --primary-foreground: oklch(0.985 0.001 106.423);
-  --secondary: oklch(0.97 0.001 106.424);
-  --secondary-foreground: oklch(0.216 0.006 56.043);
-  --muted: oklch(0.97 0.001 106.424);
-  --muted-foreground: oklch(0.553 0.013 58.071);
-  --accent: oklch(0.97 0.001 106.424);
-  --accent-foreground: oklch(0.216 0.006 56.043);
+  --popover-foreground: oklch(0.141 0.005 285.823);
+  --primary: oklch(0.705 0.213 47.604);
+  --primary-foreground: oklch(0.98 0.016 73.684);
+  --secondary: oklch(0.967 0.001 286.375);
+  --secondary-foreground: oklch(0.21 0.006 285.885);
+  --muted: oklch(0.967 0.001 286.375);
+  --muted-foreground: oklch(0.552 0.016 285.938);
+  --accent: oklch(0.967 0.001 286.375);
+  --accent-foreground: oklch(0.21 0.006 285.885);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.923 0.003 48.717);
-  --input: oklch(0.923 0.003 48.717);
-  --ring: oklch(0.709 0.01 56.259);
+  --border: oklch(0.92 0.004 286.32);
+  --input: oklch(0.92 0.004 286.32);
+  --ring: oklch(0.705 0.213 47.604);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.985 0.001 106.423);
-  --sidebar-foreground: oklch(0.147 0.004 49.25);
-  --sidebar-primary: oklch(0.216 0.006 56.043);
-  --sidebar-primary-foreground: oklch(0.985 0.001 106.423);
-  --sidebar-accent: oklch(0.97 0.001 106.424);
-  --sidebar-accent-foreground: oklch(0.216 0.006 56.043);
-  --sidebar-border: oklch(0.923 0.003 48.717);
-  --sidebar-ring: oklch(0.709 0.01 56.259);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.141 0.005 285.823);
+  --sidebar-primary: oklch(0.705 0.213 47.604);
+  --sidebar-primary-foreground: oklch(0.98 0.016 73.684);
+  --sidebar-accent: oklch(0.967 0.001 286.375);
+  --sidebar-accent-foreground: oklch(0.21 0.006 285.885);
+  --sidebar-border: oklch(0.92 0.004 286.32);
+  --sidebar-ring: oklch(0.705 0.213 47.604);
 }
 
 .dark {
-  --background: oklch(0.147 0.004 49.25);
-  --foreground: oklch(0.985 0.001 106.423);
-  --card: oklch(0.216 0.006 56.043);
-  --card-foreground: oklch(0.985 0.001 106.423);
-  --popover: oklch(0.216 0.006 56.043);
-  --popover-foreground: oklch(0.985 0.001 106.423);
-  --primary: oklch(0.923 0.003 48.717);
-  --primary-foreground: oklch(0.216 0.006 56.043);
-  --secondary: oklch(0.268 0.007 34.298);
-  --secondary-foreground: oklch(0.985 0.001 106.423);
-  --muted: oklch(0.268 0.007 34.298);
-  --muted-foreground: oklch(0.709 0.01 56.259);
-  --accent: oklch(0.268 0.007 34.298);
-  --accent-foreground: oklch(0.985 0.001 106.423);
+  --background: oklch(0.141 0.005 285.823);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.21 0.006 285.885);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.21 0.006 285.885);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.646 0.222 41.116);
+  --primary-foreground: oklch(0.98 0.016 73.684);
+  --secondary: oklch(0.274 0.006 286.033);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.274 0.006 286.033);
+  --muted-foreground: oklch(0.705 0.015 286.067);
+  --accent: oklch(0.274 0.006 286.033);
+  --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.553 0.013 58.071);
+  --ring: oklch(0.646 0.222 41.116);
   --chart-1: oklch(0.488 0.243 264.376);
   --chart-2: oklch(0.696 0.17 162.48);
   --chart-3: oklch(0.769 0.188 70.08);
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.216 0.006 56.043);
-  --sidebar-foreground: oklch(0.985 0.001 106.423);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0.001 106.423);
-  --sidebar-accent: oklch(0.268 0.007 34.298);
-  --sidebar-accent-foreground: oklch(0.985 0.001 106.423);
+  --sidebar: oklch(0.21 0.006 285.885);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.646 0.222 41.116);
+  --sidebar-primary-foreground: oklch(0.98 0.016 73.684);
+  --sidebar-accent: oklch(0.274 0.006 286.033);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.553 0.013 58.071);
+  --sidebar-ring: oklch(0.646 0.222 41.116);
 }
 
 @layer base {
@@ -123,102 +122,5 @@
   }
   body {
     @apply bg-background text-foreground;
-
-  }
-
-  [data-theme="light"] {
-    /* Base Background Colors */
-    --color-bg-base: 255, 255, 255;
-    --color-bg-elevated: 250, 250, 252;
-    --color-bg-card: 245, 245, 247;
-    --color-bg-card-highlight: 240, 240, 242;
-
-    /* Surface & Container Colors */
-    --color-surface-primary: 248, 248, 250;
-    --color-surface-secondary: 240, 240, 242;
-
-    /* Border Colors */
-    --color-border-subtle: 230, 230, 235;
-    --color-border-default: 220, 220, 225;
-    --color-border-accent: 255, 220, 200; /* Light border for accent containers */
-
-    /* Text Colors */
-    --color-text-primary: 30, 30, 34; /* Main headings/labels */
-    --color-text-secondary: 60, 60, 68; /* Regular text */
-    --color-text-tertiary: 110, 110, 120; /* Sub text, period text */
-    --color-text-muted: 150, 150, 165; /* Additional muted info */
-
-    /* Accent Colors */
-    --color-accent-primary: 252, 126, 77; /* Main accent */
-    --color-accent-secondary: 232, 116, 67; /* Hover state */
-    --color-accent-muted: 212, 106, 57; /* Inactive state */
-
-    /* Button Colors - Depth Style */
-    --color-button-depth-default: 232, 116, 57;
-    --color-button-depth-hover: 222, 106, 47;
-    --color-button-depth-active: 202, 86, 27;
-    --color-button-depth-disabled: 253, 230, 215;
-
-    /* Button Colors - Soft Style */
-    --color-button-soft-default: 252, 166, 117;
-    --color-button-soft-hover: 252, 146, 97;
-    --color-button-soft-active: 252, 126, 77;
-    --color-button-soft-disabled: 253, 230, 215;
-
-    /* Button Colors - Flat Style */
-    --color-button-flat-default: 252, 126, 77;
-    --color-button-flat-hover: 252, 146, 97;
-    --color-button-flat-active: 252, 166, 117;
-    --color-button-flat-disabled: 253, 230, 215;
-
-    /* Button - Shop Now */
-    --color-button-shop: 30, 30, 34;
-    --color-button-shop-text: 255, 255, 255;
-
-    /* Radio Button */
-    --color-radio-selected: 252, 126, 77;
-    --color-radio-unselected: 220, 220, 225;
-
-    /* Category Colors */
-    --color-category-groceries: 252, 126, 77;
-    --color-category-household: 252, 126, 77;
-    --color-category-travel: 252, 126, 77;
-    --color-category-other: 252, 126, 77;
-
-    /* Status Colors */
-    --color-status-success: 52, 192, 112;
-    --color-status-warning: 252, 186, 47;
-    --color-status-error: 252, 76, 67;
-    --color-status-info: 47, 139, 252;
-
-    /* Badge/Pill Background Colors */
-    --color-badge-work: 252, 126, 77;
-    --color-badge-travel: 252, 146, 77;
-    --color-badge-design: 252, 166, 77;
-    --color-badge-default: 240, 240, 242;
-    --color-badge-remote: 240, 240, 242;
-
-    /* Calendar/Events Colors */
-    --color-event-primary: 252, 146, 97;
-    --color-event-secondary: 252, 166, 117;
-    --color-event-tertiary: 252, 186, 137;
-
-    /* Product Card Colors */
-    --color-product-card-primary: 252, 166, 117;
-    --color-product-card-secondary: 255, 220, 200;
-
-    /* Chart Colors */
-    --color-chart-primary: 252, 126, 77;
-    --color-chart-track: 252, 186, 137;
-
-    /* Gradient Components */
-    --gradient-accent: linear-gradient(
-      135deg,
-      rgba(252, 146, 77, 1) 0%,
-      rgba(252, 106, 77, 1) 100%
-    );
-
-    /* System */
-    color-scheme: light;
   }
 }

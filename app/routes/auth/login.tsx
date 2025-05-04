@@ -1,9 +1,9 @@
-import React from "react";
+import { LoginCard } from "~/components/features/auth/LoginCard";
 
 const login = () => {
   return (
     <div>
-      <h1>Login page</h1>
+      <LoginCard />
     </div>
   );
 };

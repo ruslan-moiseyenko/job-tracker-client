@@ -10,6 +10,7 @@ import {
 import type { Route } from "./+types/root";
 import "./app.css";
 import { ThemeProvider } from "~/components/theme-provider";
+import { Loader2 } from "lucide-react";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -25,13 +26,16 @@ export const links: Route.LinksFunction = () => [
 ];
 
 export function HydrateFallback() {
-  // TODO: Provide a better loading state
-  return <p>Loading...</p>;
+  return (
+    <div className="flex items-center justify-center h-screen w-screen bg-background text-foreground">
+      <Loader2 className="h-12 w-12 animate-spin text-primary" />
+    </div>
+  );
 }
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" className="dark">
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />

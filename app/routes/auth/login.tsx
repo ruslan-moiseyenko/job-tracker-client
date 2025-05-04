@@ -1,11 +1,7 @@
 import { LoginCard } from "~/components/features/auth/LoginCard";
 
 const login = () => {
-  return (
-    <div>
-      <LoginCard />
-    </div>
-  );
+  return <LoginCard />;
 };
 
 export default login;

@@ -11,6 +11,7 @@ import type { Route } from "./+types/root";
 import "./app.css";
 import { ThemeProvider } from "~/components/theme-provider";
 import { Loader2 } from "lucide-react";
+import ErrorPage from "~/routes/error";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -60,30 +61,21 @@ export default function App() {
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
-  let message = "Oops!";
-  let details = "An unexpected error occurred.";
+  let status = "Error";
+  let title = "Oops!";
+  let message = "An unexpected error occurred.";
   let stack: string | undefined;
 
   if (isRouteErrorResponse(error)) {
-    message = error.status === 404 ? "404" : "Error";
-    details =
-      error.status === 404
-        ? "The requested page could not be found."
-        : error.statusText || details;
-  } else if (import.meta.env.DEV && error && error instanceof Error) {
-    details = error.message;
+    status = error.status.toString();
+    title = error.status === 404 ? "Page Not Found" : "Error";
+    message = error.statusText || message;
+  } else if (import.meta.env.DEV && error instanceof Error) {
+    message = error.message;
     stack = error.stack;
   }
 
   return (
-    <main className="pt-16 p-4 container mx-auto">
-      <h1>{message}</h1>
-      <p>{details}</p>
-      {stack && (
-        <pre className="w-full p-4 overflow-x-auto">
-          <code>{stack}</code>
-        </pre>
-      )}
-    </main>
+    <ErrorPage status={status} title={title} message={message} stack={stack} />
   );
 }

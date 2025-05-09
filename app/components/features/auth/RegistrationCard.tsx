@@ -1,6 +1,8 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
+import { useAuth } from "~/hooks/useAuth";
+import { Loader2 } from "lucide-react";
 import { ColoredNavLink } from "~/components/common/ColoredNavLink";
 import { Button } from "~/components/ui/button";
 import {
@@ -46,6 +48,8 @@ const formSchema = z.object({
 });
 
 export const RegistrationCard = () => {
+  const { register, loading, error } = useAuth();
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -56,8 +60,18 @@ export const RegistrationCard = () => {
     }
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    try {
+      await register({
+        email: values.email,
+        password: values.password,
+        firstName: values.firstName || undefined,
+        lastName: values.lastName || undefined
+      });
+      // Navigation is handled in the register function
+    } catch (err) {
+      console.error("Registration failed:", err);
+    }
   }
 
   return (
@@ -131,7 +145,17 @@ export const RegistrationCard = () => {
                 </FormItem>
               )}
             />
-            <Button type="submit">Submit</Button>
+            <Button type="submit" disabled={loading}>
+              {loading ? (
+                <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+              ) : null}
+              {loading ? "Registering..." : "Submit"}
+            </Button>
+            {error && (
+              <div className="text-destructive text-sm mt-1">
+                Registration failed. Please try again.
+              </div>
+            )}
           </form>
         </Form>
       </CardContent>

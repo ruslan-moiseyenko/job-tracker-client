@@ -1,6 +1,9 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router";
 import { z } from "zod";
+import { useAuth } from "~/hooks/useAuth";
+import { Loader2 } from "lucide-react";
 import { ColoredNavLink } from "~/components/common/ColoredNavLink";
 import { Button } from "~/components/ui/button";
 import {
@@ -47,6 +50,9 @@ export const LoginCard = ({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<"div">) => {
+  const navigate = useNavigate();
+  const { login, loading, error } = useAuth();
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -55,8 +61,14 @@ export const LoginCard = ({
     }
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    try {
+      await login(values.email, values.password);
+      // Navigation is handled in the login function
+    } catch (err) {
+      // Form validation errors are handled by the form
+      console.error("Login failed:", err);
+    }
   }
   return (
     <Card className={cn("flex flex-col gap-6 w-sm", className)} {...props}>
@@ -100,9 +112,17 @@ export const LoginCard = ({
                 </FormItem>
               )}
             />
-            <Button type="submit" className="w-full">
-              Login
+            <Button type="submit" className="w-full" disabled={loading}>
+              {loading ? (
+                <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+              ) : null}
+              {loading ? "Logging in..." : "Login"}
             </Button>
+            {error && (
+              <div className="text-destructive text-sm mt-1">
+                Authentication failed. Please check your credentials.
+              </div>
+            )}
             <Button variant="outline" className="w-full">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                 <path

@@ -6,12 +6,16 @@ import {
   Scripts,
   ScrollRestoration
 } from "react-router";
+import * as apolloReact from "@apollo/client/react";
+const { ApolloProvider } = apolloReact;
 
 import type { Route } from "./+types/root";
 import "./app.css";
 import { ThemeProvider } from "~/components/theme-provider";
 import { Loader2 } from "lucide-react";
 import ErrorPage from "~/routes/error";
+import { createApolloClient } from "./graphql/apolloClient";
+import { AuthProvider } from "./components/features/auth/AuthProvider";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -53,10 +57,17 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
+  // Create Apollo client instance
+  const client = createApolloClient();
+
   return (
-    <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
-      <Outlet />
-    </ThemeProvider>
+    <ApolloProvider client={client}>
+      <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+        <AuthProvider>
+          <Outlet />
+        </AuthProvider>
+      </ThemeProvider>
+    </ApolloProvider>
   );
 }
 

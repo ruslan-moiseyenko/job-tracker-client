@@ -1,0 +1,215 @@
+{
+  "jobApplications": [
+    {
+      "id": 1,
+      "header": "Software Engineer at Google",
+      "type": "Application",
+      "status": "In Progress",
+      "target": "Jun 15",
+      "limit": "Jul 1",
+      "reviewer": "Eddie Lake"
+    },
+    {
+      "id": 2,
+      "header": "Frontend Developer at Meta",
+      "type": "Interview",
+      "status": "Done",
+      "target": "May 20",
+      "limit": "Jun 5",
+      "reviewer": "Jamik Tashpulatov"
+    },
+    {
+      "id": 3,
+      "header": "Full Stack Engineer at Amazon",
+      "type": "Application",
+      "status": "In Progress",
+      "target": "Jun 1",
+      "limit": "Jun 15",
+      "reviewer": "Assign reviewer"
+    },
+    {
+      "id": 4,
+      "header": "iOS Developer at Apple",
+      "type": "Assessment",
+      "status": "Done",
+      "target": "May 10",
+      "limit": "May 25",
+      "reviewer": "Eddie Lake"
+    },
+    {
+      "id": 5,
+      "header": "Backend Engineer at Netflix",
+      "type": "Interview",
+      "status": "In Progress",
+      "target": "Jun 5",
+      "limit": "Jun 20",
+      "reviewer": "Assign reviewer"
+    },
+    {
+      "id": 6,
+      "header": "DevOps Engineer at Microsoft",
+      "type": "Assessment",
+      "status": "In Progress",
+      "target": "Jun 10",
+      "limit": "Jun 25",
+      "reviewer": "Jamik Tashpulatov"
+    },
+    {
+      "id": 7,
+      "header": "Machine Learning Engineer at Tesla",
+      "type": "Application",
+      "status": "Done",
+      "target": "May 5",
+      "limit": "May 20",
+      "reviewer": "Eddie Lake"
+    },
+    {
+      "id": 8,
+      "header": "Data Scientist at Airbnb",
+      "type": "Interview",
+      "status": "In Progress",
+      "target": "Jun 15",
+      "limit": "Jun 30",
+      "reviewer": "Assign reviewer"
+    },
+    {
+      "id": 9,
+      "header": "UX Designer at Uber",
+      "type": "Assessment",
+      "status": "Done",
+      "target": "May 15",
+      "limit": "May 30",
+      "reviewer": "Jamik Tashpulatov"
+    },
+    {
+      "id": 10,
+      "header": "Product Manager at Spotify",
+      "type": "Application",
+      "status": "In Progress",
+      "target": "Jun 20",
+      "limit": "Jul 5",
+      "reviewer": "Eddie Lake"
+    }
+  ],
+  "statistics": {
+    "overview": {
+      "totalApplications": 45,
+      "interviewsScheduled": 12,
+      "offersReceived": 3,
+      "rejections": 15
+    },
+    "applicationsByCompanyType": {
+      "tech": 22,
+      "finance": 8,
+      "healthcare": 5,
+      "education": 4,
+      "other": 6
+    },
+    "applicationsByMonth": [
+      {
+        "month": "Jan",
+        "count": 3
+      },
+      {
+        "month": "Feb",
+        "count": 5
+      },
+      {
+        "month": "Mar",
+        "count": 7
+      },
+      {
+        "month": "Apr",
+        "count": 10
+      },
+      {
+        "month": "May",
+        "count": 15
+      },
+      {
+        "month": "Jun",
+        "count": 5
+      }
+    ],
+    "responseRates": {
+      "applied": 45,
+      "initialResponse": 28,
+      "interview": 12,
+      "offer": 3
+    }
+  },
+  "jobSearchMetrics": [
+    {
+      "date": "2024-01-01",
+      "applications": 3,
+      "responses": 1
+    },
+    {
+      "date": "2024-02-01",
+      "applications": 5,
+      "responses": 2
+    },
+    {
+      "date": "2024-03-01",
+      "applications": 7,
+      "responses": 3
+    },
+    {
+      "date": "2024-04-01",
+      "applications": 10,
+      "responses": 5
+    },
+    {
+      "date": "2024-05-01",
+      "applications": 15,
+      "responses": 8
+    },
+    {
+      "date": "2024-06-01",
+      "applications": 5,
+      "responses": 3
+    }
+  ],
+  "recentActivity": [
+    {
+      "id": 1,
+      "date": "2024-05-08",
+      "type": "Application Submitted",
+      "company": "Google",
+      "position": "Software Engineer",
+      "notes": "Applied through referral"
+    },
+    {
+      "id": 2,
+      "date": "2024-05-07",
+      "type": "Interview Scheduled",
+      "company": "Meta",
+      "position": "Frontend Developer",
+      "notes": "Technical interview with the team lead"
+    },
+    {
+      "id": 3,
+      "date": "2024-05-06",
+      "type": "Assessment Completed",
+      "company": "Apple",
+      "position": "iOS Developer",
+      "notes": "Coding challenge completed"
+    },
+    {
+      "id": 4,
+      "date": "2024-05-05",
+      "type": "Offer Received",
+      "company": "Netflix",
+      "position": "Backend Engineer",
+      "notes": "Need to respond by May 15"
+    },
+    {
+      "id": 5,
+      "date": "2024-05-04",
+      "type": "Rejection",
+      "company": "Microsoft",
+      "position": "DevOps Engineer",
+      "notes": "Position filled internally"
+    }
+  ]
+}

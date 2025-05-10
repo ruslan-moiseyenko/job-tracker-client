@@ -136,7 +136,9 @@ export const LoginCard = ({
         </Form>
       </CardContent>
       <CardFooter>
-        <ColoredNavLink to="/register">Don't have an account?</ColoredNavLink>
+        <ColoredNavLink to="/auth/register">
+          Don't have an account?
+        </ColoredNavLink>
       </CardFooter>
     </Card>
   );

@@ -8,6 +8,7 @@ import {
 } from "react-router";
 import * as apolloReact from "@apollo/client/react";
 const { ApolloProvider } = apolloReact;
+import { connectApolloClientToVSCodeDevTools } from "@apollo/client-devtools-vscode";
 
 import type { Route } from "./+types/root";
 import "./app.css";
@@ -29,6 +30,14 @@ export const links: Route.LinksFunction = () => [
     href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
   }
 ];
+
+const client = createApolloClient();
+
+const devtoolsRegistration = connectApolloClientToVSCodeDevTools(
+  client,
+  // the default port of the VSCode DevTools is 7095
+  "ws://localhost:7095"
+);
 
 export function HydrateFallback() {
   return (
@@ -58,7 +67,6 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
 export default function App() {
   // Create Apollo client instance
-  const client = createApolloClient();
 
   return (
     <ApolloProvider client={client}>

@@ -42,13 +42,11 @@ export const AuthContext = createContext<AuthContextType>({
 // GraphQL queries/mutations
 const LOGIN_MUTATION = gql`
   mutation Login($email: String!, $password: String!) {
-    login(email: $email, password: $password) {
-      token
+    login(input: { email: $email, password: $password }) {
+      accessToken
+      refreshToken
       user {
-        id
         email
-        firstName
-        lastName
       }
     }
   }
@@ -135,6 +133,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
 
   // Login function
   const login = async (email: string, password: string) => {
+    console.log("🚀 ~ login ~ email and pass:", email, password);
     setLoading(true);
     setError(null);
 
@@ -143,9 +142,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({
         mutation: LOGIN_MUTATION,
         variables: { email, password }
       });
+      console.log("🚀 ~ login ~ LOGIN RESULT: ", data);
 
-      if (data?.login?.token) {
-        localStorage.setItem("auth-token", data.login.token);
+      if (data?.login?.accessToken) {
+        localStorage.setItem("accessToken", data.login.accessToken);
+        localStorage.setItem("refreshToken", data.login.refreshToken);
         setToken(data.login.token);
         setUser(data.login.user);
         navigate("/dashboard");
